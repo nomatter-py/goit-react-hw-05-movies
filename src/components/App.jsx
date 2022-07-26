@@ -4,7 +4,6 @@ import { Movies } from '../pages/Movies/Movies';
 import { NotFound } from 'pages/NotFound/NotFound';
 import { Cast } from '../components/Cast/Cast';
 import {Review} from '../components/Review/Review'
-import { Container, Header, Link } from './App.styled';
 import { MovieDetails } from './MovieDetails/MovieDetails';
 import { Layout } from './Layout/Layout';
 

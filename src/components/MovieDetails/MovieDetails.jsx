@@ -14,21 +14,18 @@ import {
 export const MovieDetails = () => {
   const location = useLocation();
   const [movieDetals, setMovieDetails] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     async function fetchDetails() {
       try {
-        setIsLoading(true);
         const data = await API.getMovieDetails(id);
         const { title, poster_path, vote_average, overview, genres } = data;
         setMovieDetails({ title, poster_path, overview, vote_average, genres });
       } catch (error) {
-        setError(error);
+        setError(true);
       }
-      setIsLoading(false);
     }
 
     fetchDetails();
@@ -36,6 +33,10 @@ export const MovieDetails = () => {
 
   if (!movieDetals) {
     return null;
+  }
+
+  if (error) {
+    return <div>error</div>;
   }
 
   const { title, poster_path, overview, vote_average, genres } = movieDetals;
@@ -66,10 +67,14 @@ export const MovieDetails = () => {
         <h2>Additional information</h2>
         <ul>
           <li>
-            <AdditionalInfoLink to="cast" state={{ from: backLinkHref }}>Cast</AdditionalInfoLink>
+            <AdditionalInfoLink to="cast" state={{ from: backLinkHref }}>
+              Cast
+            </AdditionalInfoLink>
           </li>
           <li>
-            <AdditionalInfoLink to="reviews" state={{ from: backLinkHref }}>Reviews</AdditionalInfoLink>
+            <AdditionalInfoLink to="reviews" state={{ from: backLinkHref }}>
+              Reviews
+            </AdditionalInfoLink>
           </li>
         </ul>
       </AdditionalInfoSection>

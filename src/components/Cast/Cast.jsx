@@ -5,27 +5,27 @@ import * as API from '../../services/movie-api';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const { id } = useParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchCredits() {
       try {
-        setIsLoading(true);
         const data = await API.getMovieCredits(id);
         setCast([...data.cast]);
       } catch (error) {
         setError(error);
       }
-      setIsLoading(false);
     }
     fetchCredits();
   }, [id]);
 
-
   if (cast.length === 0) {
     return null;
+  }
+
+  if (error) {
+    return <div>error</div>;
   }
 
   return (
