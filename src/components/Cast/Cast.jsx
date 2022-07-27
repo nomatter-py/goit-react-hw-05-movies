@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { CreditsItem } from './Cast.styled';
+import { CreditsList, CreditsItem } from './Cast.styled';
 import * as API from '../../services/movie-api';
 
 const Cast = () => {
@@ -30,7 +30,7 @@ const Cast = () => {
 
   return (
     <section>
-      <ul>
+      <CreditsList>
         {cast.map(({ profile_path, name, character, id }) => (
           <CreditsItem key={id}>
             <img
@@ -42,7 +42,7 @@ const Cast = () => {
             <p>Character : {character}</p>
           </CreditsItem>
         ))}
-      </ul>
+      </CreditsList>
     </section>
   );
 };
