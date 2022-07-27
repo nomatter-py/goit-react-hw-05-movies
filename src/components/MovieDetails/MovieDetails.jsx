@@ -11,7 +11,7 @@ import {
   AdditionalInfoLink,
 } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const location = useLocation();
   const [movieDetals, setMovieDetails] = useState(null);
   const [error, setError] = useState(null);
@@ -82,3 +82,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;

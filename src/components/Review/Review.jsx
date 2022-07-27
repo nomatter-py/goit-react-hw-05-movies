@@ -8,7 +8,7 @@ import {
 } from './Review.styled';
 import * as API from '../../services/movie-api';
 
-export const Review = () => {
+const Review = () => {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null);
   const { id } = useParams();
@@ -51,3 +51,5 @@ export const Review = () => {
     </section>
   );
 };
+
+export default Review;

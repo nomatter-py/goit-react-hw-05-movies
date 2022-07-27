@@ -1,10 +1,10 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import * as API from '../../services/movie-api';
 import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
 import { MovieList } from 'components/MovieList/MovieList';
 
-export const Movies = () => {
+const Movies = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
@@ -33,9 +33,13 @@ export const Movies = () => {
   return (
     <main>
       <SearchBar handleQuery={setSearchParams} />
-      { error && <div>Smth went wrong</div> }
+      {error && <div>Smth went wrong</div>}
       <MovieList movies={movies} location={location} />
-      <Outlet />
+      <Suspense fallback={<div>Loading ...</div>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };
+
+export default Movies;

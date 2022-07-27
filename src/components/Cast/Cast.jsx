@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { CreditsItem } from './Cast.styled';
 import * as API from '../../services/movie-api';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const { id } = useParams();
   const [error, setError] = useState(null);
@@ -46,3 +46,6 @@ export const Cast = () => {
     </section>
   );
 };
+
+
+export default Cast;

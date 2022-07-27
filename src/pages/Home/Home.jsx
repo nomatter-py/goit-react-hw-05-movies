@@ -1,12 +1,11 @@
 import { MainHeader } from './Home.styled';
-//import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { MovieList } from 'components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import * as API from 'services/movie-api';
 
-export const Home = () => {
+const Home = () => {
   const location = useLocation();
   const [trendingList, setTrendingList] = useState([]);
   const [error, setError] = useState(null);
@@ -49,3 +48,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

@@ -1,19 +1,21 @@
-import { LinkStyled } from "./MovieList.styled";
+import { LinkStyled } from './MovieList.styled';
 import PropTypes from 'prop-types';
 
 export const MovieList = ({ movies, location }) => {
-    return (<ul>
-        {movies.map(({ id, title }) => {
-          return (
-            <li key={id}>
-              <LinkStyled to={`/movies/${id}`} state={{ from: location }}>
-                {title}
-              </LinkStyled>
-            </li>
-          );
-        })}
-      </ul>)
-}
+  return (
+    <ul>
+      {movies.map(({ id, title }) => {
+        return (
+          <li key={id}>
+            <LinkStyled to={`/movies/${id}`} state={{ from: location }}>
+              {title}
+            </LinkStyled>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
@@ -22,4 +24,4 @@ MovieList.propTypes = {
       title: PropTypes.string.isRequired,
     })
   ).isRequired,
-}
+};

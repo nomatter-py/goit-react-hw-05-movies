@@ -12,6 +12,7 @@ export const MovieContainer = styled('section')`
   display: flex;
   border-bottom: 1px solid black;
   margin-bottom: 32px;
+  padding-bottom: ${p => p.theme.space[4]}px;
 
   > h1,
   h2,

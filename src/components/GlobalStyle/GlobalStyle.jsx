@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
     background-color: lightgrey;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #010101;
     line-height:1.4;
   }
