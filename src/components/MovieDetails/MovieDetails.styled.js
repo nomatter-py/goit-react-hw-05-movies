@@ -10,6 +10,8 @@ export const BackLink = styled(Link)`
 
 export const MovieContainer = styled('section')`
   display: flex;
+  flex-wrap: wrap;
+  gap: ${p => p.theme.space[4]}px;
   border-bottom: 1px solid black;
   margin-bottom: 32px;
   padding-bottom: ${p => p.theme.space[4]}px;
@@ -30,7 +32,8 @@ export const MainHeader = styled('h1')`
 `;
 
 export const DetailsContainer = styled('div')`
-  padding: ${p => p.theme.space[4]}px ${p => p.theme.space[6]}px;
+max-width: 380px;
+  padding: ${p => p.theme.space[4]}px;
 `;
 
 export const AdditionalInfoSection = styled('section')`
